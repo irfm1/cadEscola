@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
+
+Auth::routes();
+
+Route::resource('alunos', 'alunoController')->middleware('auth');
+Route::resource('turmas', 'turmaController')->middleware('auth');
+Route::resource('cursos', 'cursoController')->middleware('auth');
+Route::resource('disciplinas', 'DisciplinasController')->middleware('auth');
+Route::resource('professores', 'ProfessoresController')->middleware('auth');
+
+
